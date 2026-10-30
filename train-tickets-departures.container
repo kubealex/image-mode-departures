@@ -1,0 +1,11 @@
+[Unit]
+Description=Train Tickets Departure Board
+After=network-online.target local-fs.target
+
+[Container]
+Image=quay.io/kubealex/image-mode-departures:latest
+PublishPort=8080:5174
+GlobalArgs=--storage-opt=additionalimagestore=/usr/lib/bootc/storage
+
+[Install]
+WantedBy=multi-user.target default.target
