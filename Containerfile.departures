@@ -19,4 +19,4 @@ RUN mkdir -p /var/app/departures && \
 EXPOSE 5174
 
 WORKDIR /usr/share/train-tickets/departures
-CMD ["/bin/sh", "-c", "[ -z \"$API_HOST\" ] && . /etc/train-tickets/departures.env; exec npx vite --host 0.0.0.0"]
+CMD ["/bin/sh", "-c", "if [ -z \"$API_HOST\" ]; then set -a; . /etc/train-tickets/departures.env; set +a; fi; exec npx vite --host 0.0.0.0"]
