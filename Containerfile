@@ -1,6 +1,6 @@
 FROM registry.redhat.io/rhel10/rhel-bootc:latest
 
-RUN dnf -y install tmux mkpasswd firefox unzip && \
+RUN dnf -y install tmux mkpasswd firefox unzip firewalld && \
     dnf group install -y --allowerasing GNOME Fonts && \
     dnf remove -y gnome-initial-setup gnome-tour && \
     dnf clean all
